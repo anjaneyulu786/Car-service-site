@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>partner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="carstyles.css">
+    <!--   MAP LINK  -->
+   <link src="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyD4E-DP1XsNpjP1_s0P4j02exZ5MeRQ5Q4">
+</head>
+
+<body>
+    <!--    NAVIGATION    -->
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle nav</span>
+                    <span class="icon-bar" style="background-color: aqua;"></span>
+                    <span class="icon-bar" style="background-color: aqua;"></span>
+                    <span class="icon-bar" style="background-color: aqua;"></span>
+                </button>
+                <!-- Logo text or image -->
+
+                <a class="navbar-brand" href="index.html">MOP <span style="color: #fff;">WASH</span></a>
+            </div>
+            <div class="navigation collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="current"><a href="index.html">HOME</a></li>
+                    <li><a href="portfolio.html">PORTFOLIO</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="partner.html">PARTNERS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><br><br><br>
+    <section id="partner">
+        <div class="container" id="map"></div>
+        <script>
+            function initMap() {
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 3,
+                    center: {
+                        lat: 17.498950,
+                        lng: 78.397590
+                    }
+                });
+
+                // Create an array of alphabetical characters used to label the markers.
+                var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+                // Add some markers to the map.
+                // Note: The code uses the JavaScript Array.prototype.map() method to
+                // create an array of markers based on a given "locations" array.
+                // The map() method here has nothing to do with the Google Maps API.
+                var markers = locations.map(function(location, i) {
+                    return new google.maps.Marker({
+                        position: location,
+                        label: labels[i % labels.length]
+                    });
+                });
+
+                // Add a marker clusterer to manage the markers.
+                var markerCluster = new MarkerClusterer(map, markers, {
+                    imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+                });
+            }
+            var locations = [{
+                    lat: 17.491229,
+                    lng: 78.401134
+                },
+                {
+                    lat: 17.494006,
+                    lng: 78.404886
+                },
+                {
+                    lat: 17.494916,
+                    lng: 78.407349
+                },
+                {
+                    lat: 17.495432,
+                    lng: 78.401092
+                },
+                {
+                    lat: 17.496540,
+                    lng: 78.401513
+                },
+                {
+                    lat: 17.494802,
+                    lng: 78.399679
+                },
+                {
+                    lat: 17.497528,
+                    lng: 78.395857
+                },
+                {
+                    lat: 17.505135,
+                    lng: 78.384898
+                },
+                {
+                    lat: 17.507072,
+                    lng: 78.386955
+                },
+                {
+                    lat: 17.507759,
+                    lng: 78.386272
+                },
+
+            ]
+        </script>
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+            
+        </script>
+
+    </section>
+</body>
+
+</html>
